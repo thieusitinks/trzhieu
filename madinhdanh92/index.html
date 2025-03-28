@@ -196,9 +196,9 @@
 
         function copyToClipboard(text) {
             navigator.clipboard.writeText (text).then(() => {
-                alert("Copied to clipboard: " + text);
+                alert("Đã Sao Chép" + text);
             }).catch(err => {
-                console.error("Failed to copy: ", err);
+                console.error("Thất Bại Khi Sao Chép", err);
             });
         }
     </script>
