@@ -196,9 +196,9 @@
 
         function copyToClipboard(text) {
             navigator.clipboard.writeText (text).then(() => {
-                alert("Đã Sao Chép" + text);
+                alert("Đã Sao Chép :" + text);
             }).catch(err => {
-                console.error("Thất Bại Khi Sao Chép", err);
+                console.error("Thất Bại Khi Sao Chép :", err);
             });
         }
     </script>
