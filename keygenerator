@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #output {
+            width: 80%;
+            max-width: 600px;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: auto;
+            white-space: pre-line;
+            margin: 20px auto;
+            background: #f9f9f9;
+            text-align: left;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function generateKey(length = 15) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return "Nexus_" + result;
+        }
+
+        function generateKeys() {
+            const output = document.getElementById("output");
+            output.textContent = "";
+            let keys = "";
+            for (let i = 0; i < 100; i++) {
+                let key = generateKey();
+                keys += key + "\n";
+            }
+            output.textContent = keys;
+        }
+
+        function copyKeys() {
+            const output = document.getElementById("output");
+            const textarea = document.createElement("textarea");
+            textarea.value = output.textContent;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+        }
+    </script>
+</head>
+<body>
+    <h1>Key Generator</h1>
+    <button onclick="generateKeys()">Generate Keys</button>
+    <button onclick="copyKeys()">Copy to Clipboard</button>
+    <div id="output"></div>
+</body>
+</html>
